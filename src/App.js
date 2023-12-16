@@ -2,6 +2,7 @@ import { MONTH } from './constants/index.js';
 import EmergencyDutyManager from './Domain/EmergencyDutyManager.js';
 import InputView from './View/InputView.js';
 import OutputView from './View/OutputView.js';
+import repeatAsyncFunction from './utils/repeat.js';
 
 class App {
   #month;
@@ -19,25 +20,20 @@ class App {
   }
 
   async readMonthDay() {
-    try {
-      return await InputView.readMonthDay();
-    } catch (error) {
-      OutputView.printErrorMessage(error);
-      const result = await this.readMonthDay();
+    const callback = async () => {
+      const result = await InputView.readMonthDay();
       return result;
-    }
+    };
+    return await repeatAsyncFunction(callback);
   }
 
   async readWorkSequence() {
-    try {
+    const callback = async () => {
       const weekday = await InputView.readWeekdayWorkSequence();
       const holiday = await InputView.readHolidayWorkSequence();
       return { weekday, holiday };
-    } catch (error) {
-      OutputView.printErrorMessage(error);
-      const result = await this.readWorkSequence();
-      return result;
-    }
+    };
+    return await repeatAsyncFunction(callback);
   }
 
   positionWorker() {
