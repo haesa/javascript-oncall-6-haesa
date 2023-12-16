@@ -29,7 +29,7 @@ const InputValidator = {
   },
 
   numberOfWorkers(weekday, holiday) {
-    const workers = new Set([...weekday, holiday]);
+    const workers = new Set([...weekday, ...holiday]);
     if (workers.size < 5 || workers.size > 35) {
       throw new Error(ERROR_MESSAGE.numberOfWorkers);
     }

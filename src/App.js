@@ -1,5 +1,6 @@
 import { MONTH } from './constants/index.js';
 import EmergencyDutyManager from './Domain/EmergencyDutyManager.js';
+import InputValidator from './Validator/InputValidator.js';
 import InputView from './View/InputView.js';
 import OutputView from './View/OutputView.js';
 import repeatAsyncFunction from './utils/repeat.js';
@@ -31,6 +32,7 @@ class App {
     const callback = async () => {
       const weekday = await InputView.readWeekdayWorkSequence();
       const holiday = await InputView.readHolidayWorkSequence();
+      InputValidator.numberOfWorkers(weekday, holiday);
       return { weekday, holiday };
     };
     return await repeatAsyncFunction(callback);

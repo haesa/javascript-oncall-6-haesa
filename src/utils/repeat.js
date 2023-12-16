@@ -1,4 +1,4 @@
-import OutputView from '../View/OutputView';
+import OutputView from '../View/OutputView.js';
 
 export default async function repeatAsyncFunction(callback) {
   try {
