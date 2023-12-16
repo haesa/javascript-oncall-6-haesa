@@ -1,5 +1,5 @@
 import { Console } from '@woowacourse/mission-utils';
-import OUTPUT_MESSAGE from '../constants/index.js';
+import { OUTPUT_MESSAGE } from '../constants/index.js';
 
 const OntputView = {
   printTable(table) {
