@@ -1,3 +1,4 @@
-import { WEEKDAY, HOLIDAY } from './day.js';
+import ERROR_MESSAGE from './error.js';
+import { WEEKDAY, WEEKS, HOLIDAY } from './day.js';
 
-export { WEEKDAY, HOLIDAY };
+export { ERROR_MESSAGE, WEEKDAY, WEEKS, HOLIDAY };

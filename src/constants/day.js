@@ -1,4 +1,5 @@
 const WEEKDAY = Object.freeze(['월', '화', '수', '목', '금']);
+const WEEKS = Object.freeze(['월', '화', '수', '목', '금', '토', '일']);
 const HOLIDAY = Object.freeze({
   1: [1],
   3: [1],
@@ -9,4 +10,4 @@ const HOLIDAY = Object.freeze({
   12: [25],
 });
 
-export { WEEKDAY, HOLIDAY };
+export { WEEKDAY, WEEKS, HOLIDAY };
